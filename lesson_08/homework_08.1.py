@@ -9,16 +9,22 @@
 
 
 def counting_numbers_in_a_list(list_num: list):
+    """
+    A function to count the sum of the numbers in each element of the list.
+    if there are non-numeric characters, displays an error message.
+    :param list_num: List of strings with numbers separated by commas.
+    :return: Returns nothing, but prints the result for each element of the list
+    """
     for elem in list_num:
         sum_num = 0
         elem = elem.split(',')
-        for j in elem:
-            try:
+        try:
+            for j in elem:
                 sum_num += int(j)
-            except Exception:
-                print('Can\'t do it!')
-                return
-        print(sum_num)
+            print(sum_num)
+        except ValueError:
+            print('Can\'t do it!')
+            continue
 
 
 list_of_numbers = ['1,2,3,4', '1,2,3,4,50', 'qwerty1,2,3']
