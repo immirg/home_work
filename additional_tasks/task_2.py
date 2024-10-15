@@ -32,15 +32,31 @@ def check_email(email):
     at_count = email.count('@')
     if at_count != 1:
         return 'Mail is not valid'
+
     at_id = email.find('@')
-    domain_part = email[at_id:]
-    if domain_part.count('.') == 1:
-        return 'Mail is valid'
-    return 'Mail is not valid'
+    domain_parts = email[at_id+1:]
+    if domain_parts.count('.') < 1:
+        return 'Mail is not valid'
+
+    if len(domain_parts[:at_id]) < 2:
+        return 'Mail is not valid'
+
+    domain = domain_parts.split('.')
+    if len(domain) < 2:
+        return 'Mail is not valid'
+
+    for elem in domain:
+        if len(elem) < 2:
+            return 'Mail is not valid'
+
+    return 'Mail is valid'
 
 
-email = input('>>> ')
-print(check_email(email))
+# email = input('>>> ')
+print(check_email('asd@asd.com'))
+print(check_email('asd@asd.'))
+print(check_email('asd@.'))
+print(check_email('@.'))
 
 '''
 3) Додати перевірку введеної IP-адреси. Адреса вважається коректно заданою, якщо вона:
@@ -57,18 +73,20 @@ def check_ip(ip: str):
     :param ip: IP for verification
     :return: If the address is correct 'Correct IP address' otherwise 'Incorrect IP address'
     """
-    symbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
-    for elem in ip:
-        if elem not in symbols:
-            return 'Incorrect IP address'
-    list_ip = [int(i) for i in ip.split('.')]
+    list_ip = ip.split('.')
     if ip.count('.') != 3 or len(list_ip) != 4:
         return 'Incorrect IP address'
-    for i in list_ip:
-        if i > 255:
+
+    for index, elem in enumerate(list_ip):
+        if not elem or list_ip[index][0] == '0' and len(list_ip[index]) > 1:
+            return 'Incorrect IP address'
+
+    for k in list_ip:
+        if not k.isdigit() or int(k) > 255:
             return 'Incorrect IP address'
     return 'Correct IP address'
 
 
-ip = '17.172.224.47'
-print(check_ip(ip))
+print(check_ip('17.172.224.47'))
+print(check_ip('07.172.224.0'))
+print(check_ip('07.172.224.'))
