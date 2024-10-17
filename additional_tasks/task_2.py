@@ -9,11 +9,11 @@ def palindrome_check(word):
     :param word: word that should be checked for palindrome
     if the entered word is a palindrome then '+' is printed otherwise '-'
     """
-    print('+' if word == word[::-1] else '-')
+    return '+' if word == word[::-1] else '-'
 
 
-word = input('>>> ')
-palindrome_check(word=word)
+# word = input('>>> ')
+# print(palindrome_check(word=word))
 
 '''
 2) Написати валідатор для пошти. Користувач вводить пошту, а програма повинна перевірити:
@@ -53,10 +53,11 @@ def check_email(email):
 
 
 # email = input('>>> ')
-print(check_email('asd@asd.com'))
-print(check_email('asd@asd.'))
-print(check_email('asd@.'))
-print(check_email('@.'))
+# print(check_email('asd@asd.com'))
+# print(check_email('d@asd.com'))
+# print(check_email('asd@asd.'))
+# print(check_email('asd@.'))
+# print(check_email('@.'))
 
 '''
 3) Додати перевірку введеної IP-адреси. Адреса вважається коректно заданою, якщо вона:
@@ -87,6 +88,6 @@ def check_ip(ip: str):
     return 'Correct IP address'
 
 
-print(check_ip('17.172.224.47'))
-print(check_ip('07.172.224.0'))
-print(check_ip('07.172.224.'))
+# print(check_ip('17.172.224.47'))
+# print(check_ip('07.172.224.0'))
+# print(check_ip('07.172.224.'))
