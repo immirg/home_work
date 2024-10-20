@@ -2,8 +2,6 @@ import unittest
 from additional_tests.task_2 import palindrome_check, check_email, check_ip
 import sys
 import pathlib
-import requests
-import pytest
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
