@@ -1,3 +1,8 @@
+import sys
+import pathlib
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+
 '''
 1) Користувач вводить слово, якщо це слово є поліндромом, вивести '+', інакше '-'
 '''
@@ -59,6 +64,7 @@ def check_email(email):
 # print(check_email('asd@.'))
 # print(check_email('@.'))
 
+
 '''
 3) Додати перевірку введеної IP-адреси. Адреса вважається коректно заданою, якщо вона:
 складається з 4 чисел (а не літер чи інших символів)
@@ -91,3 +97,7 @@ def check_ip(ip: str):
 # print(check_ip('17.172.224.47'))
 # print(check_ip('07.172.224.0'))
 # print(check_ip('07.172.224.'))
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,5 +1,11 @@
 import unittest
-from additional_tasks.task_2 import palindrome_check, check_email, check_ip
+from additional_tests.task_2 import palindrome_check, check_email, check_ip
+import sys
+import pathlib
+import requests
+import pytest
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
 
 class PalindromeTests(unittest.TestCase):
