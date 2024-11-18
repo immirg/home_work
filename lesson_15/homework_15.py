@@ -19,16 +19,13 @@ class Rhombus:
             else:
                 super().__setattr__('angle_a', 180 - value)
 
-        if key == 'angle_b':
-            if 'angle_a' in self.__dict__ and 'angle_b' in self.__dict__ and self.angle_a + value != 180:
-                value = 180 - self.angle_a
         super().__setattr__(key, value)
 
     def __str__(self):
         return f'{self.name}: side_a: {self.side_a}, angle_a: {self.angle_a}, angle_b: {self.angle_b}'
 
 
-rhombus = Rhombus(side_a=4, angle_b=18)
+rhombus = Rhombus(side_a=0, angle_b=18)
 print(rhombus)
 print('*' * 30)
 rhombus.angle_a = 33
