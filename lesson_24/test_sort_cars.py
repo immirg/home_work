@@ -6,7 +6,7 @@ url = 'http://127.0.0.1:8080'
 class SortCars:
 
     @staticmethod
-    def login(headers, limit=None, sort_by=None):
+    def get_cars(headers, limit=None, sort_by=None):
         if not headers:
             logging.error('Ошибка аунтетификации')
             return
