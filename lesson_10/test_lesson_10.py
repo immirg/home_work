@@ -3,8 +3,7 @@ from additional_tests.task_2 import check_email, check_ip
 
 
 class TestEmail:
-
-    @pytest.mark.smoke
+    @pytest.mark.email
     @pytest.mark.parametrize('input_value, expected_result', [
         ('asd@asd.com', 'Mail is valid'),
         ('asd@asd.', 'Mail is not valid'),
@@ -17,8 +16,7 @@ class TestEmail:
 
 
 class TestIP:
-
-    @pytest.mark.smoke
+    @pytest.mark.testIp
     @pytest.mark.parametrize('input_value, expected_result', [
         ('17.172.224.47', 'Correct IP address'),
         ('7.0.224.0', 'Correct IP address'),

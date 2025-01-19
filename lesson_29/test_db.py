@@ -9,7 +9,7 @@ from lesson_29.store_products import connect_to_sqlite3, get_product_in_tb, upda
 @allure.story('test db')
 class TestDB(BaseDBTests):
 
-    @pytest.mark.smoke
+    @pytest.mark.db
     @allure.step("Adding new data to a table in a database")
     @pytest.mark.parametrize('category_id, product_nm, price', [(1, 'Great Expectations - Charles Dickens', 5.55)])
     def test_insert_value_to_product_tb(self, category_id, product_nm, price):
@@ -18,7 +18,7 @@ class TestDB(BaseDBTests):
             result = get_product_in_tb(cursor, name=product_nm)
             assert result[0][1:] == (category_id, product_nm, price)
 
-    @pytest.mark.smoke
+    @pytest.mark.db
     @allure.step("Getting a product from a database table with correct data")
     @pytest.mark.parametrize('name', ['Tom Sawyer - Mark Twain', '1984 - George Orwell'])
     def test_get_product_in_tb(self, name):
@@ -26,7 +26,7 @@ class TestDB(BaseDBTests):
             result = get_product_in_tb(cursor=cursor, name=name)
             assert result[0][2] == name
 
-    @pytest.mark.smoke
+    @pytest.mark.db
     @allure.step("Updating data in a table in a database")
     @pytest.mark.parametrize('name, new_price', [('Tom Sawyer - Mark Twain', 3.3)])
     def test_update_product_in_tb(self, name, new_price):
@@ -35,7 +35,7 @@ class TestDB(BaseDBTests):
             result = get_product_in_tb(cursor, name=name)
             assert result[0][3] == new_price
 
-    @pytest.mark.smoke
+    @pytest.mark.db
     @allure.step("Deleting data from a table in a database")
     @pytest.mark.parametrize('category_id, product_nm, price', [(1, 'The Catcher in the Rye - Jerome D. Salinger', 10.1)])
     def test_remove_product_from_tb(self, category_id, product_nm, price):
