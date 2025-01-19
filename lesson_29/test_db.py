@@ -28,7 +28,7 @@ class TestDB(BaseDBTests):
 
     @pytest.mark.db
     @allure.step("Updating data in a table in a database")
-    @pytest.mark.parametrize('name, new_price', [('Great Expectations - Charles Dickens', 3.31)])
+    @pytest.mark.parametrize('name, new_price', [('Great Expectations - Charles Dickens', 5.55)])
     def test_update_product_in_tb(self, name, new_price):
         with connect_to_sqlite3() as cursor:
             update_product_in_tb(cursor=cursor, name=name, price=new_price)
