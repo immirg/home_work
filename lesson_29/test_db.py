@@ -20,7 +20,7 @@ class TestDB(BaseDBTests):
 
     @pytest.mark.db
     @allure.step("Getting a product from a database table with correct data")
-    @pytest.mark.parametrize('name', ['Tom Sawyer - Mark Twain', '1984 - George Orwell'])
+    @pytest.mark.parametrize('name', ['Great Expectations - Charles Dickens'])
     def test_get_product_in_tb(self, name):
         with connect_to_sqlite3() as cursor:
             result = get_product_in_tb(cursor=cursor, name=name)
@@ -28,7 +28,7 @@ class TestDB(BaseDBTests):
 
     @pytest.mark.db
     @allure.step("Updating data in a table in a database")
-    @pytest.mark.parametrize('name, new_price', [('Tom Sawyer - Mark Twain', 3.3)])
+    @pytest.mark.parametrize('name, new_price', [('Great Expectations - Charles Dickens', 3.31)])
     def test_update_product_in_tb(self, name, new_price):
         with connect_to_sqlite3() as cursor:
             update_product_in_tb(cursor=cursor, name=name, price=new_price)
